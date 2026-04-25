@@ -104,9 +104,12 @@ class PrivateViewTests(TestCase):
         )
         self.client.force_login(self.user)
 
-        self.manufacturer = Manufacturer.objects.create(name="Toyota", country="Japan")
-        self.car1 = Car.objects.create(model="Camry", manufacturer=self.manufacturer)
-        self.car2 = Car.objects.create(model="Corolla", manufacturer=self.manufacturer)
+        self.manufacturer = Manufacturer.objects.create(
+            name="Toyota", country="Japan")
+        self.car1 = Car.objects.create(
+            model="Camry", manufacturer=self.manufacturer)
+        self.car2 = Car.objects.create(
+            model="Corolla", manufacturer=self.manufacturer)
 
     def test_retrieve_index_page(self):
         response = self.client.get(reverse("taxi:index"))
