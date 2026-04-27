@@ -106,6 +106,8 @@ class PrivateViewTests(TestCase):
 
         self.manufacturer = Manufacturer.objects.create(
             name="Toyota", country="Japan")
+        self.manufacturer1 = Manufacturer.objects.create(
+            name="Ford", country="Falcon")
         self.car1 = Car.objects.create(
             model="Camry", manufacturer=self.manufacturer)
         self.car2 = Car.objects.create(
@@ -131,6 +133,7 @@ class PrivateViewTests(TestCase):
             data={"name": "Toyota"}
         )
         self.assertContains(response, "Toyota")
+        self.assertNotContains(response, "Ford")
         self.assertIn("search_form", response.context)
 
     def test_assign_driver_to_car(self):

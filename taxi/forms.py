@@ -64,6 +64,12 @@ class CarModelSearchForm(forms.Form):
         )
     )
 
+    def clean_model(self):
+        model_name = self.cleaned_data.get("model")
+        if model_name:
+            return model_name.strip()
+        return model_name
+
 
 class DriverUsernameSearchForm(forms.Form):
     username = forms.CharField(
@@ -89,3 +95,9 @@ class ManufacturerNameSearchForm(forms.Form):
             }
         )
     )
+
+    def clean_name(self):
+        name = self.cleaned_data.get("name")
+        if name:
+            return name.strip()
+        return name
