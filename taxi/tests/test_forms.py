@@ -8,12 +8,12 @@ from taxi.forms import (DriverCreationForm,
 class FormsTests(TestCase):
     def test_driver_creation_with_license_number_form_valid(self):
         form_data = {
-            "username":"test_username",
-            "first_name":"test_first_name",
-            "last_name":"test_last_name",
-            "password1":"driver241",
-            "password2":"driver241",
-            "license_number":"BGD51353",
+            "username": "test_username",
+            "first_name": "test_first_name",
+            "last_name": "test_last_name",
+            "password1": "driver241",
+            "password2": "driver241",
+            "license_number": "BGD51353",
         }
         form = DriverCreationForm(data=form_data)
         self.assertTrue(form.is_valid())
